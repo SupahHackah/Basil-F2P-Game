@@ -10,6 +10,7 @@ public class characterClimbingController : MonoBehaviour
     public Rigidbody rb;
     public float moveSpeed = 5f;
     public InputAction playerControls;
+   
 
     Vector2 moveDirection = Vector2.zero;
     int isClimbingHash;
