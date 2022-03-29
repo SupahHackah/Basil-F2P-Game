@@ -7,6 +7,7 @@ public class CubeSpawner : MonoBehaviour
     public GameObject ObjectPrefab;
     public GameObject character;
     public float respawnTime = 1.0f;
+    public float respawnRate = 0.2f;
     public float destroyTime = 5.0f;
 
     public float xValue = 10.0f;
@@ -15,16 +16,10 @@ public class CubeSpawner : MonoBehaviour
 
     void Start()
     {
+        
         StartCoroutine(ObjectWave());
     }
 
-    private void spawnObject()
-    {
-        GameObject cube = Instantiate(ObjectPrefab) as GameObject;
-        cube.transform.position = new Vector3(Random.Range(-xValue, xValue),character.transform.position.y + yValue, zValue);
-        Destroy(cube, destroyTime);
-    }
-    
     IEnumerator ObjectWave()
     {
         while(true)
@@ -33,6 +28,31 @@ public class CubeSpawner : MonoBehaviour
             spawnObject();
         }
     }    
+
+    private void spawnObject()
+    {
+        GameObject cube = Instantiate(ObjectPrefab) as GameObject;
+        cube.transform.position = new Vector3(Random.Range(-xValue, xValue),character.transform.position.y + yValue, zValue);
+        Destroy(cube, destroyTime);
+    }
+
+    private void OnCollisionEnter(Collision other) 
+    {
+        
+            Debug.Log(other);
+            Destroy(other.gameObject);
+       
+        
+    }
+
+    public void SpawnRateIncrease()
+    {
+       if(respawnTime > respawnRate + 0.1f)
+       {
+        respawnTime -= respawnRate;    
+       }
+        
+    }
 
     
 }

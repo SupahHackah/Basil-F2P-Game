@@ -8,7 +8,10 @@ public class characterClimbingController : MonoBehaviour
 {
     Animator animator;
     public Rigidbody rb;
-    public float moveSpeed = 5f;
+    public float Speed = 5f;
+    public float SpeedIncrease = 5f;
+    public float SpeedLimit = 28f;
+    private float moveSpeed;
     public InputAction playerControls;
    
 
@@ -19,6 +22,7 @@ public class characterClimbingController : MonoBehaviour
     void Start()
     {
         animator = this.gameObject.GetComponent<Animator>();
+        
     }
 
     private void OnEnable()
@@ -40,13 +44,18 @@ public class characterClimbingController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed , moveDirection.y * moveSpeed );
+        rb.velocity = new Vector2(moveDirection.x * Speed , moveDirection.y * Speed  );
     }
 
-    private void currentMovement()
+    public void _speedIncrease()
     {
-        movementPressed = moveDirection.x != 0 || moveDirection.y != 0;
+        if(Speed <= SpeedLimit)
+        {
+            Speed += SpeedIncrease;
+        }
+        
     }
+
 
     void handleMovement()
     {
