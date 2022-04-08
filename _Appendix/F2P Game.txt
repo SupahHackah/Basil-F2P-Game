@@ -1,0 +1,27 @@
+Mark Benabese
+Siba Omari
+Joshua Rawl
+Marie-Lou Sultan
+Alexandros Diaconescu
+
+
+https://diazalexander.itch.io/f2p-game-game-design
+
+https://youtu.be/PfydLn7ELSc
+
+https://github.com/SupahHackah/Basil-F2P-Game
+
+
+Demographic
+
+Segment	Game 	For all browser Users
+Target Group	Young population playing browser games
+Positioning	A fun & challenging browser app with wacky characters and animations
+
+
+Leveling
+The player gets their level exp the longer they survive in their climb.
+At the end they press a button to calculate their exp gained to add to their level.
+Every 5 levels or so, the player unlocks a new character with an unique animation.
+
+Ideally, withing the first five minutes the players can unlock their first character, meaning that leveling is easy and fast, but the more they level up more they have to play.
