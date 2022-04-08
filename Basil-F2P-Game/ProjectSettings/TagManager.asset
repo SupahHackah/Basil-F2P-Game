@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CinemachineTarget
   - cube
+  - Level0
+  - Level1
+  - Level2
   layers:
   - Default
   - TransparentFX

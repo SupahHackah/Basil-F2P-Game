@@ -6,12 +6,14 @@ public class LevelGenerator : MonoBehaviour
 {
     public GameObject[] levelPrefabs;
     public float ySpawn = 0;
-    public float levelLength = 100;
+    public float levelLength = 99;
     public int numberOfLevels = 3;
+
+    public int character;
 
     private List<GameObject> activeLevels = new List<GameObject>();
 
-    public Transform player;
+    public Transform[] player;
 
     void start()
     {
@@ -33,9 +35,9 @@ public class LevelGenerator : MonoBehaviour
 
     void Update()
     {
-        if(player.position.y > ySpawn - (numberOfLevels * levelLength))
+        if(player[character].position.y > ySpawn - (numberOfLevels * levelLength))
         {
-           print("Level Spawned");
+           //print("Level Spawned");
            SpawnLevel(Random.Range(0, levelPrefabs.Length));
             
         }
@@ -63,4 +65,9 @@ public class LevelGenerator : MonoBehaviour
         activeLevels.RemoveAt(0);
     }
     */
+
+    void OnEnable()
+    {
+        character = PlayerPrefs.GetInt("character");
+    }
 }
